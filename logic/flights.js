@@ -1,11 +1,19 @@
 function Flights() {
-    function calculateNumberOfFlights(pass,cap){
+    function calculateNumberOfFlights(passengers,capacity){
+
         let f;
 
-        if(pass % cap == 0){
-            f = pass/cap
+        if((passengers < 0) || (!Number.isInteger(Number(passengers))) ){
+            throw Error( "The number of passengers must be a positive integer value")
+        }
+        if((capacity < 0)||(!Number.isInteger(Number(capacity)))){
+            throw Error ("The capacity of the flight must be a positive integer value")
+        }
+
+        if(passengers % capacity == 0){
+            f = passengers/capacity
         }else{
-            f = Math.floor(pass/cap)+1
+            f = Math.floor(passengers/capacity)+1
         }
         return f;
     }
