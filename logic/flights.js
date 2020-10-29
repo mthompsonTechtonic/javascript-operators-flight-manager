@@ -1,12 +1,17 @@
 function Flights() {
     function calculateNumberOfFlights(pass,cap){
-        let f = cap/pass
-        if(cap % pass == 0){
-            return f
+        let f;
+
+        if(pass % cap == 0){
+            f = pass/cap
         }else{
-            return Math.trunc(f+1)
+            f = Math.floor(pass/cap)+1
         }
+        return f;
     }
+
+    return {calculateNumberOfFlights};
 
 }
 
+module.exports = Flights();
